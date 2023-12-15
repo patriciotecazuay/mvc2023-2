@@ -6,8 +6,10 @@
 package mvc2023.pkg2;
 
 import mvc2023.pkg2.controlador.ControladorPersonas;
+import mvc2023.pkg2.controlador.ControladorPrincipal;
 import mvc2023.pkg2.modelo.ModeloPersona;
 import mvc2023.pkg2.vista.VistaPersona;
+import mvc2023.pkg2.vista.VistaPrincipal;
 
 /**
  *
@@ -20,11 +22,11 @@ public class Mvc20232 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ModeloPersona modelo=new ModeloPersona();
-        VistaPersona vista= new VistaPersona();
-        ControladorPersonas control= new ControladorPersonas(modelo, vista);
-       control.iniciaControl();
+        VistaPrincipal vistaPrincipal=new VistaPrincipal();
+        
+        ControladorPrincipal controlPrincipal=new ControladorPrincipal(vistaPrincipal);
        
+        controlPrincipal.iniciarControl();
     }
     
 }
