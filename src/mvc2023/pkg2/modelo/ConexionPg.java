@@ -41,6 +41,10 @@ public class ConexionPg {
         
         
     }
+
+    public Connection getCon() {
+        return con;
+    }
     
     public ResultSet consultaDB (String query){
     //Ejecutar query que devuelvan datos.

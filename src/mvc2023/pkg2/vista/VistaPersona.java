@@ -53,7 +53,7 @@ public class VistaPersona extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         bntEliminar = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblEstado = new javax.swing.JLabel();
@@ -138,7 +138,7 @@ public class VistaPersona extends javax.swing.JInternalFrame {
                 .addGap(42, 42, 42))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         label1.setText("Buscar:");
 
@@ -150,7 +150,7 @@ public class VistaPersona extends javax.swing.JInternalFrame {
 
         bntEliminar.setText("Eliminar");
 
-        jButton5.setText("Imprimir");
+        btnImprimir.setText("Imprimir");
 
         btnActualizar.setText("Actualizar");
 
@@ -176,7 +176,7 @@ public class VistaPersona extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bntEliminar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(btnImprimir)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -194,7 +194,7 @@ public class VistaPersona extends javax.swing.JInternalFrame {
                         .addComponent(btnNuevo)
                         .addComponent(btnEditar)
                         .addComponent(bntEliminar)
-                        .addComponent(jButton5))
+                        .addComponent(btnImprimir))
                     .addComponent(btnActualizar))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -247,6 +247,10 @@ public class VistaPersona extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnImprimir() {
+        return btnImprimir;
+    }
 
     public JButton getBtnEditar() {
         return btnEditar;
@@ -318,10 +322,10 @@ public class VistaPersona extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExaminar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JDialog dlgPersona;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

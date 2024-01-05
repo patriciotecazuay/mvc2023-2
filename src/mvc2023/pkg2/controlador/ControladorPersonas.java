@@ -8,11 +8,20 @@ package mvc2023.pkg2.controlador;
 import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import mvc2023.pkg2.modelo.ConexionPg;
 import mvc2023.pkg2.modelo.ModeloPersona;
 import mvc2023.pkg2.modelo.Persona;
 import mvc2023.pkg2.vista.VistaPersona;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -36,8 +45,26 @@ public class ControladorPersonas {
         vista.getBtnNuevo().addActionListener(l->abrirDialogo(true));
         vista.getBtnEditar().addActionListener(l->abrirDialogo(false));
         vista.getBtnAceptar().addActionListener(l->grabarEditarPersona());
+        vista.getBtnImprimir().addActionListener(l->imprimirPersonas());
     }
     
+    private void imprimirPersonas(){
+        ConexionPg conecction=new ConexionPg();
+        try {
+            JasperReport reporte=(JasperReport)JRLoader.loadObject(
+                    getClass().getResource("/mvc2023/pkg2/vista/reportes/ReporteClientes.jasper")
+            );
+            
+            JasperPrint jp =JasperFillManager.fillReport(
+                    reporte,
+                    null,
+                    conecction.getCon());
+            JasperViewer jv=new JasperViewer(jp,false);
+            jv.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(ControladorPersonas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void grabarEditarPersona(){
             if(vista.getDlgPersona().getTitle().contentEquals("CREAR NUEVA PERSONA")){
             //LOGICA PARA GRABAR
